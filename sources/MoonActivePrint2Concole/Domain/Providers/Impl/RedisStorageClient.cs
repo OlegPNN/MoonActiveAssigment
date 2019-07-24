@@ -11,7 +11,9 @@ namespace MoonActivePrint2Concole.Domain.Providers.Impl
 {
     public class RedisStorageClient : IRedisStorageClient
     {
+        #region Dependencies
         private readonly RedisKey MessageQueueKey = "MoonActiveMessages";
+        #endregion
         public RedisStorageClient()
         { }
 
@@ -22,18 +24,18 @@ namespace MoonActivePrint2Concole.Domain.Providers.Impl
                 var redis = RedisStore.RedisCache;
             var rank = model.TimeStamp.ToOADate();
             var result = false;
-            do
+            do //in transaction watch that member-message is not exists yet tries to add it into sorted list untill success
             {
                 var trans = redis.CreateTransaction();
                 var members = redis.SortedSetRangeByScore(MessageQueueKey, rank, rank);
                 model.Sequence = members.Count() + 1;
                 var member = JsonConvert.SerializeObject(model);
                 trans.AddCondition(Condition.SortedSetNotContains(MessageQueueKey, member));
-                await trans.SortedSetAddAsync(MessageQueueKey, member, rank);
+                trans.SortedSetAddAsync(MessageQueueKey, member, rank);
                 var exec = trans.ExecuteAsync();
                 result = redis.Wait(exec);
             } while (!result);
-            return true;
+            return await Task.FromResult(true);
             }
             catch (Exception e)
             {
@@ -53,6 +55,7 @@ namespace MoonActivePrint2Concole.Domain.Providers.Impl
                 do
                 {
                     var trans = redis.CreateTransaction();
+                    //gets list of messages, within transaction watch they still exists, removes them from sorted list and prints if transaction completed with a success
                     var members = redis.SortedSetRangeByScore(MessageQueueKey, 0, rank);
                     if (members.Count() > 0)
                     {
@@ -68,7 +71,7 @@ namespace MoonActivePrint2Concole.Domain.Providers.Impl
                         var s = new StringBuilder();
                         for (int i = 0; i < msgList.Count(); i++)
                         {
-                            s.AppendLine(string.Format("Time {0} Message {1}", currtime, msgList[i].Message));
+                            s.AppendLine(string.Format("echoTime-{0} echoMessage:{1}", currtime, msgList[i].Message));
                         }
                         var exec = trans.ExecuteAsync();
                         result = redis.Wait(exec);

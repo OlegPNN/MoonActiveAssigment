@@ -27,9 +27,9 @@ namespace MoonActivePrint2Concole.Domain.Infrustructure.Impl
                 _redisClient.PublishPendingMessages();
 
                 //using while to keep the sequence 
-                var mSecs = (10000 - (DateTime.Now - currtime).TotalMilliseconds);
+                var mSecs = (int)(10000 - (DateTime.Now - currtime).TotalMilliseconds);
                 if(mSecs > 0)
-                Thread.Sleep(10000);
+                Thread.Sleep(mSecs);
             }
         }
     }

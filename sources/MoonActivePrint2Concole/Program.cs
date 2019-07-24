@@ -18,20 +18,29 @@ namespace MoonActivePrint2Concole
         public static void Main(string[] args)
         {
             IPrintHandler printerHandler = new PrintHandler();
-            //Thread thread = new Thread(new ThreadStart(printerHandler.LoopForMessages))
-            //{
-            //    IsBackground = true,
-            //    Name = "Check for Messages to print thread"
-            //};
-            //thread.Start();
-            
+            Thread thread = new Thread(new ThreadStart(printerHandler.LoopForMessages))
+            {
+                IsBackground = true,
+                Name = "Check for Messages to print thread"
+            };
+            thread.Start();
+
             CreateWebHostBuilder(args).Build().Run();
 
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .ConfigureAppConfiguration(
+                    (builderContext, configurationBuilder) =>
+                    {
+                        configurationBuilder
+                            .AddJsonFile(
+                                $"appsettings.json",
+                                optional: true,
+                                reloadOnChange: true);
+                    });
 
     }
 }

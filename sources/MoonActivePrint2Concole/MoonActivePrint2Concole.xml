@@ -31,5 +31,34 @@
             <param name="model"><see cref="T:MoonActivePrint2Concole.Domain.Models.MessageToPrint"/></param>
             <returns><see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
         </member>
+        <member name="T:MoonActivePrint2Concole.Startup">
+            <summary>
+            Startup class
+            </summary>
+        </member>
+        <member name="M:MoonActivePrint2Concole.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MoonActivePrint2Concole.Startup"/> class.
+            </summary>
+        </member>
+        <member name="P:MoonActivePrint2Concole.Startup.Configuration">
+            <summary>
+            Gets or sets Configuration
+            </summary>
+        </member>
+        <member name="M:MoonActivePrint2Concole.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <returns><see cref="T:System.IServiceProvider"/></returns>
+        </member>
+        <member name="M:MoonActivePrint2Concole.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"><see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/></param>
+            <param name="env"><see cref="T:Microsoft.AspNetCore.Hosting.IHostingEnvironment"/></param>
+        </member>
     </members>
 </doc>

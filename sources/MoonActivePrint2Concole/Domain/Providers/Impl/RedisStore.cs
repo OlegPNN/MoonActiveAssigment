@@ -23,6 +23,7 @@ namespace MoonActivePrint2Concole.Domain.Providers.Impl
 
             var configurationOptions = new ConfigurationOptions
             {
+                AbortOnConnectFail = false,
                 EndPoints = { config["redis.connection"] }
             };
 

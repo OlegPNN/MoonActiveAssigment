@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  moonactiveprint2concole:
+    image: ${DOCKER_REGISTRY-}moonactiveprint2concole
+    build:
+      context: .
+      dockerfile: MoonActivePrint2Concole/Dockerfile

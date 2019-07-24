@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoonActivePrint2Concole", "MoonActivePrint2Concole\MoonActivePrint2Concole.csproj", "{BDB3CAD2-D806-4A74-A65C-F8435CB19620}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoonActivePrint2Concole", "MoonActivePrint2Concole\MoonActivePrint2Concole.csproj", "{BDB3CAD2-D806-4A74-A65C-F8435CB19620}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E8182EEA-7E68-4E79-BE0D-914E689D8B68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BDB3CAD2-D806-4A74-A65C-F8435CB19620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDB3CAD2-D806-4A74-A65C-F8435CB19620}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDB3CAD2-D806-4A74-A65C-F8435CB19620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8182EEA-7E68-4E79-BE0D-914E689D8B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8182EEA-7E68-4E79-BE0D-914E689D8B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8182EEA-7E68-4E79-BE0D-914E689D8B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8182EEA-7E68-4E79-BE0D-914E689D8B68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

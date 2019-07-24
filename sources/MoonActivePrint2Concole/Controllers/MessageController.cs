@@ -18,17 +18,21 @@ namespace MoonActivePrint2Concole.Controllers
     [ApiController]
     public class MessageController : Controller
     {
+        #region Dependencies
+
         private readonly IRedisStorageClient _redisStorageClient;
+        #endregion
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageController"/> class.
         /// </summary>
         /// <param name="redisStorageClient"><see cref="IRedisStorageClient"/></param>
 
+        #region .ctor
         public MessageController(IRedisStorageClient redisStorageClient)
         {
             this._redisStorageClient = redisStorageClient;
         }
-
+        #endregion
         /// <summary>
         /// echoAtTime receives as parameters time and message
         /// </summary>
