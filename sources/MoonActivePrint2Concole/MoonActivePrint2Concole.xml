@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MoonActivePrint2Concole</name>
+    </assembly>
+    <members>
+        <member name="T:MoonActivePrint2Concole.Controllers.MessageController">
+            <summary>
+            Controller to get message and echo it in specified time
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="M:MoonActivePrint2Concole.Controllers.MessageController.#ctor(MoonActivePrint2Concole.Domain.Providers.IRedisStorageClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MoonActivePrint2Concole.Controllers.MessageController"/> class.
+            </summary>
+            <param name="redisStorageClient"><see cref="T:MoonActivePrint2Concole.Domain.Providers.IRedisStorageClient"/></param>
+        </member>
+        <member name="M:MoonActivePrint2Concole.Controllers.MessageController.GetMessage(System.String,System.String)">
+            <summary>
+            echoAtTime receives as parameters time and message
+            </summary>
+            <param name="message">Message to echo</param>
+            <param name="time">string representation of time to print</param>/// 
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="M:MoonActivePrint2Concole.Controllers.MessageController.ReceivePostMessage(MoonActivePrint2Concole.Domain.Models.MessageToPrint)">
+            <summary>
+             echoAtTime receives as body model with time and message
+            </summary>
+            <param name="model"><see cref="T:MoonActivePrint2Concole.Domain.Models.MessageToPrint"/></param>
+            <returns><see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+    </members>
+</doc>
